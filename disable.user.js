@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      2023-12-26
 // @description  Hey spotify, how about stop making stupid features and forcing its users to use it when no one asked for it, and disabling it doesn't work consistenly leading to a maddening user experience ?
-// @author       You
+// @author       Nick Wang
 // @match        https://open.spotify.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=spotify.com
 // @grant        none
