@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         Disable Spotify Now playing view
+// @name         Disable stupid spotify garbage
 // @namespace    http://tampermonkey.net/
 // @version      2023-12-26
-// @description  Disable Now playing view
-// @author       Nick Wang
+// @description  try to take over the world!
+// @author       You
 // @match        https://open.spotify.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=spotify.com
 // @grant        none
@@ -17,12 +17,19 @@
       const button = document.querySelector(selector);
 
       if (button) {
-        // Assuming 'button' is the variable holding your selected button element
-        const isPressed = button.getAttribute("aria-pressed");
+        const observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            const isPressed = mutation.target.getAttribute("aria-pressed");
 
-        if (isPressed === "true") {
-          button.click();
-        }
+            if (isPressed === "true") {
+              mutation.target.click();
+            }
+          });
+        });
+
+        observer.observe(button, {
+          attributes: true,
+        });
       } else {
         retries++;
         if (retries < maxRetries) {
